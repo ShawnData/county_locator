@@ -5,7 +5,7 @@ library(ggmap)
 #load data and get latitude and longitude
 school_name <- read.csv(file.choose(), header = F, stringsAsFactors = F)
 lat_long <- geocode(school_name[,1])
-# create ID for both data base
+# create ID for both dataset
 lat_long$id <- seq.int(nrow(lat_long))
 school_name$id <- seq.int(nrow(school_name))
 #match both data
@@ -58,8 +58,6 @@ latlong2county <- function(pointsDF) {
   countyNames <- sapply(counties_sp@polygons, function(x) x@ID)
   countyNames[indices]
 }
-
-
 
 
 #find counties
